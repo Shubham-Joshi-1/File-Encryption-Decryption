@@ -1,0 +1,42 @@
+# Overview of the Code
+The code is a C++ program that provides functionality for encrypting and decrypting files using a simple XOR-based encryption method. It includes key generation, file handling, and a command-line interface for user interaction.
+
+# Key Components
+
+1. Key Generation:
+
+The program generates a random 32-byte encryption key when the user selects the option to generate a key. This key is saved to a file named secret.key.
+The key is generated using the rand() function seeded with the current time to ensure randomness.
+
+2. Key Loading:
+
+When the user wants to encrypt or decrypt a file, the program reads the key from the secret.key file.
+If the key file does not exist or is corrupted, the program prompts the user to generate a new key.
+
+3. XOR Encryption/Decryption:
+
+The core of the encryption and decryption process is the XOR operation. This operation is symmetric, meaning that applying the same operation with the same key will reverse the effect.
+The xorData() function takes the file data and the key, and applies the XOR operation byte by byte.
+
+4. File Handling:
+
+The program allows the user to specify a file to encrypt or decrypt. It reads the file's contents into memory, applies the XOR operation, and then writes the modified data back to the same file.
+The program checks for the existence of the specified file and handles errors related to file access.
+
+5. User Interface:
+
+The program presents a simple text-based menu to the user, allowing them to choose between generating a key, encrypting a file, decrypting a file, or exiting the program.
+User input is handled with basic error checking to ensure valid choices.
+
+
+>>> Workflow
+
+1. Start the Program: The user runs the program, which displays a menu with options.
+
+2. Generate Key: The user can choose to generate a new encryption key, which is saved to secret.key.
+
+3. Encrypt a File: The user selects a file to encrypt. The program loads the key from secret.key, reads the file, applies the XOR operation, and writes the encrypted data back to the file.
+
+4. Decrypt a File: The user can also choose to decrypt a file. The process is the same as encryption since XOR is symmetric; the program loads the key, reads the encrypted file, applies the XOR operation again, and restores the original data.
+
+5. Exit: The user can exit the program at any time.
